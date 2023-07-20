@@ -4,4 +4,4 @@ def reverse_string(string):
     rev_string = ""
     for i in range(length - 1, -1, -1):
         rev_string += string[i]
-    return (rev_string)
+    return rev_string

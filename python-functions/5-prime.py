@@ -10,7 +10,7 @@ def sieve_of_eratosthenes(n):
         A list of prime numbers.
     """
     if n <= 1:
-        return ([])
+        return []
 
     primes = [True] * (n + 1)
     primes[0] = primes[1] = False
@@ -22,6 +22,7 @@ def sieve_of_eratosthenes(n):
 
     return [i for i in range(2, n + 1) if primes[i]]
 
+
 def is_prime(number):
     """
     Checks if a number is prime.
@@ -31,6 +32,6 @@ def is_prime(number):
 
     Returns:
         True if the number is prime, False otherwise.
-  """
+    """
     primes = sieve_of_eratosthenes(number)
-    return(number in primes)
+    return number in primes
