@@ -85,9 +85,11 @@ class Rectangle(Base):
         A public method that prints in stdout the Rectangle instance
         with the character #
         """
-        for row in range(self.__height):
-            for col in range(self.__width):
-                if col == self.__width - 1:
+        print("\n" * self.y, end="")
+        for _ in range(self.height):
+            print(" " * self.x, end="")
+            for col in range(self.width):
+                if col == self.width - 1:
                     print("#")
                 else:
                     print("#", end="")
