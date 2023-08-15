@@ -31,14 +31,14 @@ class Rectangle(Base):
         self.__width = value
 
     @property
-    def heigth(self):
-        """Getter method for the private attribute heigth"""
-        return self.__heigth
+    def height(self):
+        """Getter method for the private attribute height"""
+        return self.__height
 
-    @heigth.setter
-    def heigth(self, value):
-        """Setter method for the peivate attribute heigth"""
-        self.__heigth = value
+    @height.setter
+    def height(self, value):
+        """Setter method for the peivate attribute height"""
+        self.__height = value
 
     @property
     def x(self):
