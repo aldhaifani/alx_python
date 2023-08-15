@@ -102,20 +102,18 @@ class Rectangle(Base):
             self.id, self.x, self.y, self.width, self.height
         )
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         A public method that assigns an argument to each attribute:
-        1st argument should be the id attribute
-        2nd argument should be the width attribute
-        3rd argument should be the height attribute
-        4th argument should be the x attribute
-        5th argument should be the y attribute
         """
-        try:
-            self.id = args[0]
-            self.width = args[1]
-            self.height = args[2]
-            self.x = args[3]
-            self.y = args[4]
-        except IndexError:
-            pass
+        attr = {}
+        if args is not None and len(args) > 0:
+            keys = ["id", "width", "height", "x", "y"]
+            for i in range(len(args) if len(args) < 5 else 5):
+                attr[keys[i]] = args[i]
+        else:
+            attr = kwargs
+
+        if len(attr) > 0:
+            for key, value in attr.items():
+                setattr(self, key, value)
