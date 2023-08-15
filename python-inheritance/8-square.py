@@ -6,7 +6,7 @@ A module that contains the class Sqaure which inherits from Rectangle
 Rectangle = __import__("7-rectangle").Rectangle
 
 
-class Squar(Rectangle):
+class Square(Rectangle):
     """
     A class that defines a Square that inherits from a Rectangle
     """
