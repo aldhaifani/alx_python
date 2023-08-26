@@ -13,10 +13,11 @@ passwd = sys.argv[2]
 
 
 r = requests.get(
-    "https://api.github.com/users/{}".format(username), data={"Authorization": passwd}
+    "https://api.github.com/users/{}".format(username),
+    headers={"Authorization": "token {}".format(passwd)},
 )
 
-if r.status_code == 404 or r.status_code == 403:
+if r.status_code != 200:
     print("None")
 else:
     user_id = r.text.split(",")[1].split(":")[1]
