@@ -13,11 +13,10 @@ try:
 except IndexError:
     q = ""
 
-r = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
-
-if len(r.text) == 0:
+if len(q) == 0:
     print("No result")
 else:
+    r = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
     try:
         body = eval(r.text)
         print("[{}] {}".format(body["id"], body["name"]))
