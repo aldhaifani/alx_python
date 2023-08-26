@@ -13,7 +13,7 @@ try:
 except IndexError:
     q = ""
 
-r = requests.post("http://0.0.0.0:5000/search_user", json={"q": q})
+r = requests.post("http://0.0.0.0:5000/search_user", data={"q": q})
 
 if len(r.text) == 0:
     print("No result")
