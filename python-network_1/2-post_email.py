@@ -5,10 +5,10 @@ sends a POST request to the passed URL with the email as a parameter,
 and finally displays the body of the response.
 """
 import requests
-from sys import argv
+import sys
 
-url = argv[1]
-e = argv[2]
+url = sys.argv[1]
+e = sys.argv[2]
 
 r = requests.post("{}".format(url), data={"email": e})
 
