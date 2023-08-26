@@ -20,7 +20,6 @@ if len(r.text) == 0:
 else:
     try:
         body = eval(r.text)
-        print(r.text)
-        print("[{}] {}".format(body['id'], body['name']))
+        print("[{}] {}".format(body["id"], body["name"]))
     except (SyntaxError, NameError):
         print("Not a valid JSON")
