@@ -16,5 +16,8 @@ r = requests.get(
     "https://api.github.com/users/{}".format(username), data={"Authorization": passwd}
 )
 
-user_id = r.text.split(",")[1].split(":")[1]
-print(user_id)
+if r.status_code == 404 or r.status_code == 403:
+    print("None")
+else:
+    user_id = r.text.split(",")[1].split(":")[1]
+    print(user_id)
