@@ -9,4 +9,7 @@ from sys import argv
 url = argv[1]
 
 r = requests.get("{}".format(url))
-print(r.headers["X-Request-Id"])
+try:
+    print(r.headers["X-Request-Id"])
+except KeyError:
+    print(None)
