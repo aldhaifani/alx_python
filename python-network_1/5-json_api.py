@@ -15,8 +15,11 @@ except IndexError:
 
 r = requests.post("http://0.0.0.0:5000/search_user", json={"q": q})
 
-try:
-    body = eval(r.text)
-    print("[{}] {}".format(body[id], body[name]))
-except (SyntaxError, NameError):
+if len(r.text) == 0:
     print("No result")
+else:
+    try:
+        body = eval(r.text)
+        print("[{}] {}".format(body["id"], body["name"]))
+    except (SyntaxError, NameError):
+        print("Not a valid JSON")
