@@ -8,7 +8,7 @@ import sys
 
 url = sys.argv[1]
 
-r = requests.post("{}".format(url))
+r = requests.get("{}".format(url))
 status_code = r.status_code
 
 if status_code >= 400:
