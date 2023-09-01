@@ -19,7 +19,11 @@ db_connect = MySQLdb.connect(
 
 db_cursor = db_connect.cursor()
 
-db_cursor.execute("SELECT * FROM cities")
+db_cursor.execute(
+    "SELECT cities.id, cities.name, states.name \
+                  FROM cities \
+                  INNER JOIN states ON cities.state_id=states.id"
+)
 rows_selected = db_cursor.fetchall()
 
 for row in rows_selected:
