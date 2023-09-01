@@ -17,8 +17,8 @@ if __name__ == "__main__":
     factory = sessionmaker(bind=engine)
     session = factory()
 
-    try:
-        first_state = session.query(State)[0]
-        print("{}: {}".format(first_state.id, first_state.name))
-    except IndexError:
+    first_state = session.query(State).order_by(State.id).first()
+    if first_state == None:
         print("Nothing")
+    else:
+        print("{}: {}".format(first_state.id, first_state.name))
