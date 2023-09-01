@@ -33,6 +33,7 @@ rows_len = len(rows_selected)
 
 for i in range(rows_len):
     if i == rows_len - 1:
-        print(rows_selected[i][0])
+        print(rows_selected[i][0], end="")
     else:
         print(rows_selected[i][0], end=", ")
+print()
