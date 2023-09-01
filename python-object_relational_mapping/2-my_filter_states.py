@@ -24,7 +24,7 @@ db_connect = MySQLdb.connect(
 db_cursor = db_connect.cursor()
 
 db_cursor.execute(
-    "SELECT * FROM states WHERE name LIKE '{}'".format(state_name_searched)
+    "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(state_name_searched)
 )
 rows_selected = db_cursor.fetchall()
 
