@@ -20,7 +20,7 @@ db_connect = MySQLdb.connect(
 
 db_cursor = db_connect.cursor()
 
-db_cursor.execute("SELECT * FROM states WHERE name LIKE 'N%'")
+db_cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%'")
 rows_selected = db_cursor.fetchall()
 
 for row in rows_selected:
