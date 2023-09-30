@@ -28,7 +28,7 @@ def export_to_CSV(user_id):
             ]
         )
 
-    with open(str(user_id) + "{}.csv", "w", encoding="UTF8", newline="") as f:
+    with open(str(user_id) + ".csv", "w", encoding="UTF8", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(tasks_data)
 
