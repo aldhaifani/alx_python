@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+Python Script that uses the jsonplaceholder REST API
+"""
 import requests
 from sys import argv
 
