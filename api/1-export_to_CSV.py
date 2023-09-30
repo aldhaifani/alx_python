@@ -27,6 +27,6 @@ if __name__ == "__main__":
             ]
         )
 
-    with open("{}.csv".format(user_id), "w", encoding="UTF8", newline="") as f:
+    with open(str(user_id) + "{}.csv", "w", encoding="UTF8", newline="") as f:
         writer = csv.writer(f, delimiter=",")
         writer.writerows(tasks_data)
