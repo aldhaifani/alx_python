@@ -3,9 +3,10 @@
 Python script to export data in the CSV format.
 """
 
-import requests
-from sys import argv
 import csv
+import requests
+import sys
+
 
 
 def export_to_CSV(user_id):
@@ -34,4 +35,4 @@ def export_to_CSV(user_id):
 
 
 if __name__ == "__main__":
-    export_to_CSV(argv[1])
+    export_to_CSV(sys.argv[1])
