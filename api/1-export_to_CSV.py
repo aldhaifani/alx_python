@@ -2,12 +2,13 @@
 """
 Python script to export data in the CSV format.
 """
-if __name__ == "__main__":
-    import requests
-    from sys import argv
-    import csv
 
-    user_id = argv[1]
+import requests
+from sys import argv
+import csv
+
+
+def export_to_CSV(user_id):
     employee_name = requests.get(
         "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
     ).json()["name"]
@@ -28,5 +29,9 @@ if __name__ == "__main__":
         )
 
     with open(str(user_id) + "{}.csv", "w", encoding="UTF8", newline="") as f:
-        writer = csv.writer(f, delimiter=",")
+        writer = csv.writer(f)
         writer.writerows(tasks_data)
+
+
+if __name__ == "__main__":
+    export_to_CSV(argv[1])
