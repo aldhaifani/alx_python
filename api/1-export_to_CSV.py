@@ -8,7 +8,6 @@ import requests
 import sys
 
 
-
 def export_to_CSV(user_id):
     employee_name = requests.get(
         "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
