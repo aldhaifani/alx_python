@@ -2,31 +2,31 @@
 """
 Python script to export data in the CSV format.
 """
-import requests
-from sys import argv
-import csv
+if __name__ == "__main__":
+    import requests
+    from sys import argv
+    import csv
 
-user_id = argv[1]
-employee_name = requests.get(
-    "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
-).json()["name"]
-tasks = requests.get(
-    "https://jsonplaceholder.typicode.com/users/{}/todos".format(user_id)
-).json()
+    user_id = argv[1]
+    employee_name = requests.get(
+        "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
+    ).json()["name"]
+    tasks = requests.get(
+        "https://jsonplaceholder.typicode.com/users/{}/todos".format(user_id)
+    ).json()
 
-tasks_data = []
+    tasks_data = []
 
-for task in tasks:
-    tasks_data.append(
-        [
-            str(user_id),
-            employee_name,
-            task["completed"],
-            task["title"],
-        ]
-    )
+    for task in tasks:
+        tasks_data.append(
+            [
+                str(user_id),
+                employee_name,
+                task["completed"],
+                task["title"],
+            ]
+        )
 
-
-with open("{}.csv".format(user_id), "w", encoding="UTF8", newline="") as f:
-    writer = csv.writer(f, delimiter=",")
-    writer.writerows(tasks_data)
+    with open("{}.csv".format(user_id), "w", encoding="UTF8", newline="") as f:
+        writer = csv.writer(f, delimiter=",")
+        writer.writerows(tasks_data)
