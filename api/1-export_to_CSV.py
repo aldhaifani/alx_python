@@ -11,7 +11,7 @@ import sys
 def export_to_CSV(user_id):
     employee_name = requests.get(
         "https://jsonplaceholder.typicode.com/users?id={}".format(user_id)
-    ).json()[0]['username']
+    ).json()[0]["username"]
     tasks = requests.get(
         "https://jsonplaceholder.typicode.com/users/{}/todos".format(user_id)
     ).json()
@@ -21,7 +21,7 @@ def export_to_CSV(user_id):
     for task in tasks:
         tasks_data.append(
             [
-                str(user_id),
+                user_id,
                 employee_name,
                 task["completed"],
                 task["title"],
@@ -29,7 +29,7 @@ def export_to_CSV(user_id):
         )
 
     with open(str(user_id) + ".csv", "w", encoding="UTF8", newline="") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, quoting=csv.QUOTE_ALL)
         writer.writerows(tasks_data)
 
 
