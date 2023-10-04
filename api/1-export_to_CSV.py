@@ -10,8 +10,8 @@ import sys
 
 def export_to_CSV(user_id):
     employee_name = requests.get(
-        "https://jsonplaceholder.typicode.com/users/{}".format(user_id)
-    ).json()["name"]
+        "https://jsonplaceholder.typicode.com/users?id={}".format(user_id)
+    ).json()[0]['username']
     tasks = requests.get(
         "https://jsonplaceholder.typicode.com/users/{}/todos".format(user_id)
     ).json()
